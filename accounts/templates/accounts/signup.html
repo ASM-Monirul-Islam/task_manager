@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+<form action="{% url 'accounts:signup' %}" method="post" class="myForm">
+	{% csrf_token %}
+  <h1>Register</h1>
+  <label for="fname">First Name</label>
+  <input type="text" name="fname" class="fname input" />
+  <label for="lname">Last Name</label>
+  <input type="text" name="lname" class="lname input" />
+  <label for="email">Email</label>
+  <input type="email" name="email" class="email input" />
+  <label for="phone">Phone Number</label>
+  <input type="number" name="phone" class="phone input" />
+  <label for="pass1">Password</label>
+  <input type="password" name="pass1" class="pass1 input" />
+  <label for="pass2">Confirm your Password</label>
+  <input type="password" name="pass2" class="pass2 input" />
+  <button class="btn" type="submit">Register</button>
+  <button class="btn" type='button' onclick="window.location.href='{% url "tasks:task_home" %}'">Back to Home</button>
+  <span> {% if error %} {{error}} {% endif %}</span>
+</form>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+<form action="{% url 'accounts:signin' %}" method="post" class="myForm">
+	{% csrf_token %}
+  <h1>Login</h1>
+  <label for="email">Username</label>
+  <input
+    type="email"
+    name="email"
+    class="email input"
+    placeholder="Enter Email as an username"
+    autocomplete="username"
+  />
+  <label for="password">Password</label>
+  <input
+    type="password"
+    name="password"
+    class="password input"
+    placeholder="Enter your password"
+    autocomplete="new-password"
+  />
+  <button class="btn" type="submit">Login</button>
+  <button class="btn" type='button' onclick="window.location.href='{% url "tasks:task_home" %}'">Back to Home</button>
+  <span> {% if error %} {{error}} {% endif %}</span>
+</form>
+{% endblock content %}

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css" />
+  </head>
+  <body>
+    <section id="header">
+      <h1>header</h1>
+      <div id="logout_section">
+        <button><a class="logout_btn" href="#">Logout</a></button>
+      </div>
+    </section>
+
+    <section id="container">
+      <!-- <div id="button_for_user">
+        <button><a href="">Login</a></button>
+        <button><a href="">Register</a></button>
+      </div> -->
+      <!-- <form action="" method="post" class="myForm">
+        <h1>Register</h1>
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" class="fname input">
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" class="lname input">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="email input">
+        <label for="phone">Phone Number</label>
+        <input type="number" name="phone" class="phone input">
+        <label for="pass1">Password</label>
+        <input type="password" name="pass1" class="pass1 input">
+        <label for="pass2">Confirm your Password</label>
+        <input type="password" name="pass2" class="pass2 input">
+        <button type="submit">Register</button>
+      </form> -->
+
+      <!-- <form action="" method="post" class="myForm">
+        <h1>Login</h1>
+        <label for="email">Username</label>
+        <input type="email" name="email" class="email input" placeholder="Enter Email as username">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="password input" placeholder="Enter your password">
+        <button type="submit">Register</button>
+      </form> -->
+
+      <!-- <div id="task_list">
+        <div id="task_list_header">
+          <h1>Your Tasks</h1>
+          <a class="add_task_btn" href="">Add Task +</a>
+        </div>
+        <div class="task_card">
+          <div class="task_card_header">
+            <div class="title">Title</div>
+            <ul class="task_crud">
+              <li><a href="">Mark as Complete</a></li>
+                  <li><a href="">Edit</a></li>
+              <li><a href="">Delete</a></li>
+            </ul>
+          </div>
+          <div class="description">description</div>
+          <div class="task_status">Completed</div>
+        </div>
+      </div> -->
+
+      <form action="" method="post" class="myForm">
+        <h1>Add a task</h1>
+        <label for="title">Task Title</label>
+        <input type="text" name="title" class="title input" />
+        <label for="description">Description</label>
+        <textarea
+          name="description"
+          class="description textarea"
+          placeholder="Write task description"
+        ></textarea>
+        <div class="task_status">
+          <input type="checkbox" name="task_status" class="task_status">
+          Completed
+        </div>
+        <button type="submit">Add Task</button>
+        <button type="button" onclick="window.location.href=''">Back to home</button>
+      </form>
+    </section>
+
+    <section id="footer">footer</section>
+  </body>
+</html>

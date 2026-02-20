@@ -1,0 +1,53 @@
+{% extends "base.html" %} {% block header %}
+<div id="logout_section">
+  <form method="POST" action="{% url 'accounts:signout' %}">
+    {% csrf_token %}
+    <button class="logout_btn" type="submit">Logout</button>
+  </form>
+</div>
+{% endblock header %} {% block content %}
+
+
+
+<div id="task_list">
+  <div id="task_list_header">
+    <h1>Hello {{user.first_name}} {{user.last_name}} Your Tasks</h1>
+    <a class="add_task_btn" href="{% url 'tasks:create_task' %}">Add Task +</a>
+  </div>
+
+  {% for t in tasks %}
+  <div class="task_card {% if t.is_completed %}completed{% endif %}">
+    <div class="task_card_header">
+      <div class="title">{{t.title}}</div>
+      <ul class="task_crud">
+        <li><a href="{% url 'tasks:toggle_task' t.id %}">
+			{% if t.is_completed %}
+			Mark as Incompleted
+			{% else %}
+			Mark as Completed
+			{% endif %}
+		</a></li>
+        <li><a href="{% url 'tasks:edit_task' t.id %}">Edit</a></li>
+        <li><a href="{% url 'tasks:delete_task' t.id %}">Delete</a></li>
+      </ul>
+    </div>
+	{% if t.description %}
+    <div class="description">description</div>
+	{% endif %}
+    <div class="task_status {% if t.is_completed %} completed {% else %} pending {% endif %}">
+		{% if t.is_completed %}
+		Completed
+		{% else %}
+		Pending
+		{% endif %}
+	</div>
+  </div>
+  
+  {% empty %}
+  <h1>Task not added yet</h1> 
+
+  {% endfor %}
+</div>
+
+
+{% endblock content %}

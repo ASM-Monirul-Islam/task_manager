@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block header %}
+<div id="logout_section">
+  <form method="POST" action="{% url 'accounts:signout' %}">
+    {% csrf_token %}
+    <button class="logout_btn" type="submit">Logout</button>
+  </form>
+</div>
+{% endblock header %} {% block content %}
+<form action="{% if task %} {% url 'tasks:edit_task' task.id %} {% else %} {% url 'tasks:create_task' %} {% endif %}" method="post" class="myForm">
+	{% csrf_token %}
+  <h1>Add a task</h1>
+  <label for="title">Task Title</label>
+  <input type="text" name="title" class="title input" value="{{task.title | default:''}}"/>
+  <label for="description">Description</label>
+  <textarea
+    name="description"
+    class="description textarea"
+    placeholder="Write task description"
+  >{{task.description | default:''}}</textarea>
+  <div class="task_status">
+    <input type="checkbox" name="is_completed" class="task_status" {% if task.is_completed %} checked {% endif %}/>
+    Completed
+  </div>
+  <button class="btn" type="submit">
+	{% if task %}
+	Update task
+	{% else %}
+	Add Task
+	{% endif %}
+  </button>
+  <button class="btn" type="button" onclick="window.location.href = '{% url "tasks:task_list" %}'">
+    Back to home
+  </button>
+</form>
+{% endblock content %}
