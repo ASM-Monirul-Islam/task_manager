@@ -50,3 +50,8 @@ def delete_task(request, id):
 	task = get_object_or_404(Task, id=id, user=request.user)
 	task.delete()
 	return redirect('tasks:task_list')
+
+@login_required
+def admin_view(request):
+	tasks = Task.objects.all()
+	return render(request, 'tasks/admin_view.html', {'tasks':tasks})

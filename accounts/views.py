@@ -44,6 +44,8 @@ def signin(request):
 		if user is not None:
 
 			login(request, user)
+			if user.is_superuser:
+				return redirect('tasks:admin_view')
 			return redirect('tasks:task_list')
 		
 		else:
